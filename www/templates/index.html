@@ -1,28 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
-<head>
+
+  <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/">
-    <title>Hello, world!</title>
-</head>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/default.css">
+   
+    <title>Estación meteorológica</title>
+
+  </head>
+
+  <body id="page-top">
+  <h4>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active">Estación meteorológica</li>
+    </ol>
+  </h4>
+    <div id="wrapper">
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Valores promedio</li>
+          </ol>
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-primary o-hidden h-100">
+                <div class="card-body">
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  <div class="mr-5" id="Temperatura">
+                    Temperatura [°C]: 0
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-warning o-hidden h-100">
+                <div class="card-body">
+                  <div class="mr-5" id="Humedad">Humedad [%]: 0</div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-success o-hidden h-100">
+                <div class="card-body">
+                  <div class="mr-5" id="Presatm">PA [hPa]: 0</div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-danger o-hidden h-100">
+                <div class="card-body">
+                  <div class="mr-5" id="Velviento">Velocidad de viento [km/h]: 0</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="container-fluid">
+       
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Valores actuales</li>
+          </ol>
 
 
-<body>
+          <!-- Icon Cards-->
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-primary o-hidden h-100">
+                <div class="card-body">
+                  <div class="mr-5" id="lastTemperatura">Temperatura [°C]: 0</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-warning o-hidden h-100">
+                <div class="card-body">
+                  <div class="mr-5" id="lastHumedad">Humedad [%]: 0</div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-success o-hidden h-100">
+                <div class="card-body">
+                  <div class="mr-5" id="lastPresatm">PA [hPa]: 0</div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-danger o-hidden h-100">
+                <div class="card-body">
+                  <div class="mr-5" id="lastVelviento">Velocidad de viento [km/h]: 0</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Actualización de parámetros
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center container ">
+
+            <div class="row ">
+                <form action="">
+                  <div class="form-group">
+                    <label for="sel1">Período de actualización (segundos):</label>
+                  </div>
+                  <select class="form-control" id="selection">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="5">5</option>
+                        <option value="30">30</option>
+                        <option value="60">60</option>
+                  </select>
+                </form>
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+            <div class="text-center">
+              <button class="btn btn-primary" type="submit" id="update">Actualizar</button>            
+            </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+   
+    <!-- JQuery -->
+    <script src="/static/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css"/>
 
-</body>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    
+
+    <script src="/static/js/index.js"></script>
+
+
+  </body>
 
 </html>

@@ -1,0 +1,25 @@
+.input_width{
+   width: 450px;
+}
+
+.navbar {
+    margin-bottom: 1rem;
+}
+
+.row.start{
+    justify-content: center;
+    margin-bottom: 1rem;            
+}
+
+.row > .btn{
+    min-width: 20%;
+}
+
+.myimage {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 120px;
+    z-index: 100;
+    height: 100px;
+}
+

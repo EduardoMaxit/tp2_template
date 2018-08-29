@@ -15,11 +15,16 @@ class Process(object):
 
     def start_process(self):
         if self.process == None:
+            #se inicia el proceso. Llamado al main principal del proceso sin parametros. No necesario pasaje de parametros
             cmd = "python process.py"
             self.process = subprocess.Popen(cmd.split(), preexec_fn=os.setsid)
             return self.process.pid
         return None
     
+ 
+    def is_running(self):
+        return self.process != None
+
     """stop_process: kill the process if there is a process executed
     """
 
