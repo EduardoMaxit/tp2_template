@@ -15,6 +15,10 @@ class GracefulKiller:
     def exit_gracefully(self, signum, frame):
         self.kill_now = True
 
+"""main: Genera los parametros requeridos y 
+los almacena en la base de datos
+Parametros recibidos: session de la db
+"""
 
 def main(session):
     killer = GracefulKiller()

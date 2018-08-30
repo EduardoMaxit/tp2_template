@@ -14,6 +14,7 @@ class Database(object):
     db_port = os.getenv("DB_PORT") if os.getenv("DB_PORT") != None else "3306"
     Base = declarative_base()
     
+
     def get_session(self):
         """Singleton of db connection
 
@@ -29,24 +30,31 @@ class Database(object):
             self.Base.metadata.create_all(engine)
         return self.session
     
+
+
+    """get_valores: Obtiene los valores requeridos de la db
+    Retorno:
+        Devuelve un arreglo con los parametros obtenidos y/o calculados
+    """
     def get_valores(self):
+
 
         #Se obtiene la sesion
         session = self.get_session()
 
-        #ultimos 10 valores. Orden por id (ultimo con id mas alto)
+        #Ultimos 10 valores. Orden por id (ultimo con id mas alto)
         #Con esto se pide devolucion de los ultimos 10 parametros, se los ordena por id en forma descendente 
         #(primer elemento = ultimo elemento ingresado), y se pide que lo devuelva como una lista)
         datos = session.query(Samples).order_by(Samples.id.desc()).limit(10).all()
         
-        #se cierra la sesion
+        #Se cierra la sesion
         session.close()
 
-        #arreglo auxiliar
+        #Arreglo auxiliar
         parametros=[0,0,0,0,0,0,0,0]
         
 
-        #control por si no existen aun datos en la db
+        #Control por si no existen aun datos en la db
         if(len(datos)!=0):
            
             #Se obtienen los valores acumulados

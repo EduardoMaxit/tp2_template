@@ -6,11 +6,11 @@ import subprocess
 class Process(object):
     process = None
 
-    """start_process: start process 
-    if there isn't any other process started
+    """start_process: Iniciar proceso
+    si no hay otro proceso iniciado
     
-    Returns:
-        [int] -- Return the pid (process id) if the process start correctly / None if there is a process started before
+    Retorno:
+        Devuelve el pid (id del proceso) si el proceso comienza correctamente / None si hay un proceso iniciado antes
     """
 
     def start_process(self):
@@ -21,11 +21,14 @@ class Process(object):
             return self.process.pid
         return None
     
- 
+    """is_running: Determina si el proceso se esta ejecutando
+        Retorno: Devuelve True si se esta ejecutando, False en caso contrario
+
+    """
     def is_running(self):
         return self.process != None
 
-    """stop_process: kill the process if there is a process executed
+    """stop_process: Matar el proceso si se esta ejecutando
     """
 
     def stop_process(self):

@@ -16,6 +16,9 @@ app = Flask(__name__)
 pro = Process()
 db = Database()
 
+"""@app.route "crea" una asociacion entre la url dada como
+argumento y la funcion"""
+
 # Definir la ruta para ingresar en el navegador
 @app.route('/')
 def index():
@@ -30,7 +33,7 @@ def index():
 def get_valores():
 	#Se obtienen los valores
     valores = db.get_valores()
-    #Retorno de los valores hacia al script
+    #Retorno de los valores hacia el script
     return jsonify({"temperatura":valores[0] ,"humedad":valores[1], "presatm":valores[2],"velviento":valores[3],"lasttemperatura":valores[4],"lasthumedad":valores[5],"lastpresatm":valores[6],"lastvelviento":valores[7]}) 
 
 
