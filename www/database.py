@@ -19,7 +19,7 @@ class Database(object):
         """Singleton o instancia unica a la base de datos
 
         Retorno:
-            Conexion a la base de datos
+            Conexion a la base de datos (Singleton)
         """
         if self.session == None:
             connection = 'mysql+mysqlconnector://%s:%s@%s:%s/%s' % (self.db_user,self.db_pass,self.db_host,self.db_port,self.db_name)
