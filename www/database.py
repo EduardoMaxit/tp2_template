@@ -16,10 +16,10 @@ class Database(object):
     
 
     def get_session(self):
-        """Singleton of db connection
+        """Singleton o instancia unica a la base de datos
 
-        Returns:
-            [db connection] -- [Singleton of db connection]
+        Retorno:
+            Conexion a la base de datos
         """
         if self.session == None:
             connection = 'mysql+mysqlconnector://%s:%s@%s:%s/%s' % (self.db_user,self.db_pass,self.db_host,self.db_port,self.db_name)
